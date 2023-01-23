@@ -22,13 +22,13 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show crystal
+    show crystal at right
 
     # These display lines of dialogue.
 
     c "This was the choco banana place I was telling you about."
 
-    show sapphire
+    show sapphire at left
 
     s "It's amazing!"
 
@@ -78,5 +78,12 @@ label wasabiBanana:
     s "{i}Maybe.{/i}"
 
     "Crystal blushes."
+
+    return
+
+label variables:
+
+    $ PlayerScore = 0
+    $ PlayerName = "Sapphire"
 
     return
