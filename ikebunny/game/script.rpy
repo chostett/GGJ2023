@@ -14,14 +14,17 @@ define r = Character("Haruka", color="#8533ae")
 # 紫陽花
 define p = Character("Paradise", color="#1596a2")
 
-
 # The game starts here.
 
 label start:
 
+    $ endings = 0
+
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
+    
+label start2:
 
     scene bg room
 
@@ -33,91 +36,140 @@ label start:
 
     # These display lines of dialogue.
 
-    {i}"Once upon a time, there lived a special little bunny."{/i}
+    "{i}An ikebunny is a very special creature.{/i}"
 
-    {i}"Why were they special?"{/i}
+    "{i}Why are they special?{/i}"
 
-    {i}"Well...this bunny was a seed."{/i}
+    "{i}When an ikebunny comes of age, they sink their roots into the ground...{/i}"
 
-    {i}"And when they came of age, she would sink their roots into the ground..."{/i}
+    "{i}...drink up a loooot of water...{/i}"
 
-    {i}"...drink up a loooot of water..."{/i}
+    "{i}And grow a beautiful flower.{/i}"
 
-    {i}"And grow a beautiful flower."{/i}
+    "{i}Somebunnies' flowers are the same as their mother. Or father. And somebunnies' flowers are the same as other relatives, like their aunties or cousins.{/i}"
 
-    {i}"All the older rabbits had them. And the older they got, the more they asked..."{/i}
+    "{i}You are an ikebunny named Hana. You want to know what your beautiful flower will be.{/i}"
 
-    {i}"Dad, what flower am I?"{/i}
+    "{i}So you ask your dads.{/i}"
 
-    {i}"They asked their dad every day."{/i}
+    h "Hey dad, do you think I'll be a sakura flower like you?"
 
-    {i}"And every day their dad told them the same thing..."{/i}
+    "One of your dads is named Saku. He was born and raised in Japan."
 
     s "You'll be the flower that you were meant to be, Hana."
 
     h "Daaaad."
 
-    h "He's been saying that since you were a kid"
+    "You groan. He's been saying vague stuff like that since you were a kid."
 
-    s "What?"
+    h "I mean, I know I came from Auntie Haruka."
 
-    h "You've been saying that since I was a kid. Isn't it time you gave me a real answer?"
+    "Haruka has been your dad's best friend since forever. She was also the person who gave birth to you. She comes over every week for dinner."
 
-    s "That is the real answer."
+    h "But like...who is my real dad?"
 
-    h "Daaaaaaaaaaad!"
+    "Saku suddenly goes quiet. Then he looks very, very sad. You get the sense you said something bad. You start to panic."
 
-    "Another rabbit emerges from the kitchen. He's chewing on some hay."
+    "Another rabbit comes up behind your dad and gives him a hug. He has a big, cheerful sunflower sprouting from his back."
 
-    l "Hana, is this man bothering you?"
+    l "Saku, is this lady bothering you?"
 
-    "Leo comes up behind Saku and gives him a squeeze. Saku looks mock-offended."
+    s "..."
 
-    s "I would never!"
+    "Leo's smile drops when he sees the tears in Saku's eyes. His flower wilts a bit."
+
+    l "Saku, what happened?"
+
+    h "Uh..."
+
+    "Oh no. You messed up. Your dads are going to be mad at you...! What are you supposed to say?!"
+
+    menu: 
+            "I'm sorry. I think I said something bad...":
+                call paradise
+            "I asked who my real dad is. Why is that a problem?":
+                call basilAndDaisy
+            "Um...can I go over to Auntie Haruka's house?":
+                call auntHaruka
+
+    if endings >= 3:
+
+        jump hiddenEnding
+
+    else:
+
+        h "It's a normal ending of the game."
+
+        jump start2
+        
+return
+
+return
+
+# The game ends here
+
+label paradise: 
+
+    p "This is the ending with Paradise"
+
+    $ endings += 1
+
+    return
+
+label basilAndDaisy:
+    b "I'm Basil!"
+
+    d "I'm Daisy."
+
+    h "This is the Basil and Daisy Ending."
+
+    $ endings += 1
+
+    return
+
+label auntHaruka:
+    h "Um...can I go over to Auntie Haruka's house?"
+
+    l "What's this all of the sudden?"
+
+    "Leo looks confused. Saku puts a hand on his shoulder."
+
+    s "It's okay. Let her go."
+
+    "Before Leo can say anything, you grab your bike and leave in a panic. What did you do!? You're scared to ask either of them."
+
+    "Maybe Auntie Haruka has answers."
+
+    "Auntie Haruka's house is a ten minute bike ride. You practically toss the bike down to get to her door."
+
+    h "Auntie...!"
+
+    "She opens the door. She's dressed sharply and the hydrangea on her back is perfectly quaffed. She always looks so put together."
+
+    h "Auuuunnntiiiiiieeee!"
+
+    "Auntie Haruka gives you a big hug."
+
+    r "Oh, Haru! What's wrong?!"
+
+    h "*sniff* I think I said something bad...I asked my dad about my flower and who my real dad was..."
+
+    r "Aw honey. Don't stand outside. Come in, come in."
+
+    "She invites you in for lavender tea. The words come spilling out of you."
 
     h "All my friends already have their flowers. Some of them say they're the same as their parents or their great-great-grandparents."
 
-    h "You told me I was adopted. I was wondering..."
+    h "And like, I know you and one of my dads made me. But they never told me which one."
 
-    h "Do you know who my real family is?"
+    h "And then I asked...and dad..."
 
-    "Saku looks hurt."
+    $ endings += 1
 
-    l "Honey, that hurts your dad and I. We're your real family."
+    return
 
-    h "I-I'm sorry! But I've never met my bio parents or Saku's parents..."
+label hiddenEnding:
 
-    l "I don't think you want to meet his parents. They're...not very nice to me and your dad."
-
-    h "But what if they like me??"
-
-    "Both parents look like they are at a loss. They turn towards each other and discuss in hushed voices."
-
-    {i}"It couldn't hurt..."{/i}
-
-    {i}"Yes, it could..."{/i}
-
-    {i}"They're an adult now..."{/i}
-
-    {i}"I guess if we..."{/i}
-
-    "They both turn back to Hana."
-
-    l "Tell you what. We'll get in contact with the adoption agency and we can talk with them together."
-
-    s "If you talk to my parents, I'd like to ask Haruka to join us."
-
-    h "Oh sure. Why Haruka?"
-
-    s "...you'll find out soon enough, I'm sure."
-
-    h "Ok, then I'd like to..."
-
-        menu: 
-            "Contact the adoption agency"
-            "Call Haruka and contact my grandparents"
-            "Nevermind, I'll go to my room"
-
-    # This ends the game.
+    h "Congratulations! You found the hidden ending."
 
     return

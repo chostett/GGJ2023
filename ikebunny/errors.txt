@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 85: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "I'm sorry, dad. I think I said something bad..."
+                                                     ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Sat Feb  4 15:11:08 2023

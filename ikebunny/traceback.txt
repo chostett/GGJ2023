@@ -1,0 +1,30 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 88, in script call
+    call basilAndDaisy
+  File "game/script.rpy", line 119, in script
+    $ endings += 1
+  File "game/script.rpy", line 119, in <module>
+    $ endings += 1
+NameError: name 'endings' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 88, in script call
+    call basilAndDaisy
+  File "game/script.rpy", line 119, in script
+    $ endings += 1
+  File "/Applications/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Applications/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 119, in <module>
+    $ endings += 1
+NameError: name 'endings' is not defined
+
+macOS-10.16-x86_64-i386-64bit x86_64
+Ren'Py 8.0.3.22090809
+ikebunny 1.0
+Sat Feb  4 15:32:27 2023
