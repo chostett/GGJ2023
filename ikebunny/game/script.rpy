@@ -13,15 +13,15 @@ define d = Character("Daisy", color = "#b628e1")
 define r = Character("Haruka", color="#8533ae")
 # 紫陽花
 define p = Character("Paradise", color="#1596a2")
-define paradiseEnd = False
-define basilDaisyEnd = False
-define harukaEnd = False
 
 
 # The game starts here.
 
 label start:
 
+    define persistent.paradiseEnd = False
+    define persistent.basilDaisyEnd = False
+    define persistent.harukaEnd = True
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -93,7 +93,7 @@ label start:
             "Um...can I go over to Auntie Haruka's house?":
                 call auntHaruka
 
-    if (paradiseEnd == True) and (basilDaisyEnd == True) and (harukaEnd == True):
+    if (persistent.paradiseEnd == True) and (persistent.basilDaisyEnd == True) and (persistent.harukaEnd == True):
 
         jump hiddenEnding
 
@@ -109,7 +109,7 @@ return
 
 label paradise: 
 
-    $ paradiseEnd = True
+    $ persistent.paradiseEnd = True
 
     p "This is the ending with Paradise"
 
@@ -117,7 +117,7 @@ label paradise:
 
 label basilAndDaisy:
 
-    $ basilDaisyEnd = True
+    $ persistent.basilDaisyEnd = True
 
     b "I'm Basil!"
 
@@ -128,6 +128,9 @@ label basilAndDaisy:
     return
 
 label auntHaruka:
+
+    $ persistent.harukaEnd = True
+
     h "Um...can I go over to Auntie Haruka's house?"
 
     "Leo looks confused. Saku puts a hand on his shoulder."
@@ -222,8 +225,6 @@ label auntHaruka:
 
     "{i}There's still more to explore! Try out different options and see how Hana grows.{/i}"
 
-    $ harukaEnd = True
-
 return
 
 label flowers:
@@ -257,5 +258,18 @@ label sadDad:
 label hiddenEnding:
 
     h "Congratulations! You found the hidden ending."
+
+    menu:
+        "Reset the game entirely":
+            call resetGame
+        "It's ok":
+            pass
+
+    return
+
+label resetGame: 
+
+    $ persistent._clear()
+    $ renpy.full_restart()
 
     return

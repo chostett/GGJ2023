@@ -1,38 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 192, in script
-    python:
-  File "renpy/common/00start.rpy", line 193, in <module>
-    renpy.execute_default_statement(True)
-  File "game/script.rpy", line 16, in set_default
-    default paradiseEnd = false
-  File "game/script.rpy", line 16, in <module>
-    default paradiseEnd = false
-NameError: name 'false' is not defined
+  File "game/script.rpy", line 96, in script
+    if (paradiseEnd == True) and (basilDaisyEnd == True) and (harukaEnd == True):
+  File "game/script.rpy", line 96, in <module>
+    if (paradiseEnd == True) and (basilDaisyEnd == True) and (harukaEnd == True):
+NameError: name 'paradiseEnd' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 192, in script
-    python:
-  File "/Applications/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Applications/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00start.rpy", line 193, in <module>
-    renpy.execute_default_statement(True)
-  File "/Applications/renpy-8.0.3-sdk/renpy/exports.py", line 3797, in execute_default_statement
-    i.set_default(start)
-  File "game/script.rpy", line 16, in set_default
-    default paradiseEnd = false
+  File "game/script.rpy", line 96, in script
+    if (paradiseEnd == True) and (basilDaisyEnd == True) and (harukaEnd == True):
+  File "/Applications/renpy-8.0.3-sdk/renpy/ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "/Applications/renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
   File "/Applications/renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 16, in <module>
-    default paradiseEnd = false
-NameError: name 'false' is not defined
+  File "game/script.rpy", line 96, in <module>
+    if (paradiseEnd == True) and (basilDaisyEnd == True) and (harukaEnd == True):
+NameError: name 'paradiseEnd' is not defined
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.0.3.22090809
 ikebunny 1.0
-Sat Feb  4 17:07:18 2023
+Sat Feb  4 17:31:06 2023
