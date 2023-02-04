@@ -13,18 +13,19 @@ define d = Character("Daisy", color = "#b628e1")
 define r = Character("Haruka", color="#8533ae")
 # 紫陽花
 define p = Character("Paradise", color="#1596a2")
+define paradiseEnd = False
+define basilDaisyEnd = False
+define harukaEnd = False
+
 
 # The game starts here.
 
 label start:
 
-    $ endings = 0
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-    
-label start2:
 
     scene bg room
 
@@ -92,15 +93,13 @@ label start2:
             "Um...can I go over to Auntie Haruka's house?":
                 call auntHaruka
 
-    if endings >= 3:
+    if (paradiseEnd == True) and (basilDaisyEnd == True) and (harukaEnd == True):
 
         jump hiddenEnding
 
     else:
 
-        h "It's a normal ending of the game."
-
-        jump start2
+        "This is a normal ending."
         
 return
 
@@ -110,62 +109,149 @@ return
 
 label paradise: 
 
-    p "This is the ending with Paradise"
+    $ paradiseEnd = True
 
-    $ endings += 1
+    p "This is the ending with Paradise"
 
     return
 
 label basilAndDaisy:
+
+    $ basilDaisyEnd = True
+
     b "I'm Basil!"
 
     d "I'm Daisy."
 
     h "This is the Basil and Daisy Ending."
 
-    $ endings += 1
-
     return
 
 label auntHaruka:
     h "Um...can I go over to Auntie Haruka's house?"
 
-    l "What's this all of the sudden?"
-
     "Leo looks confused. Saku puts a hand on his shoulder."
 
     s "It's okay. Let her go."
 
-    "Before Leo can say anything, you grab your bike and leave in a panic. What did you do!? You're scared to ask either of them."
+    "Before your dads can say anything, you grab your bike and leave in a panic. What did you do!? You're scared to ask."
 
-    "Maybe Auntie Haruka has answers."
+    h "Maybe Auntie Haruka can tell me."
 
-    "Auntie Haruka's house is a ten minute bike ride. You practically toss the bike down to get to her door."
+    "Auntie Haruka's house is a ten minute bike ride. You toss your bike down and run to her door."
 
     h "Auntie...!"
 
-    "She opens the door. She's dressed sharply and the hydrangea on her back is perfectly quaffed. She always looks so put together."
+    "Auntie Haruka opens the door. She's dressed sharply and the hydrangea on her back is perfectly quaffed."
 
     h "Auuuunnntiiiiiieeee!"
 
     "Auntie Haruka gives you a big hug."
 
-    r "Oh, Haru! What's wrong?!"
+    r "Oh, little bean! What's wrong?!"
 
-    h "*sniff* I think I said something bad...I asked my dad about my flower and who my real dad was..."
+    h "*sniff* I think I said something bad...I asked my dad about my flower and...and who my real dad was..."
 
-    r "Aw honey. Don't stand outside. Come in, come in."
+    r "Aw honey."
 
     "She invites you in for lavender tea. The words come spilling out of you."
 
-    h "All my friends already have their flowers. Some of them say they're the same as their parents or their great-great-grandparents."
+    menu:
+        "All my friends already have their flowers.":
+            call flowers
+        "Why is my dad so sad?":
+            call sadDad
+    
+    r "Oh little bean. Family doesn't always work that way."
 
-    h "And like, I know you and one of my dads made me. But they never told me which one."
+    h "It doesn't?"
 
-    h "And then I asked...and dad..."
+    r "Sometimes you inherit stuff from your family, sure. But sometimes you grow your own stuff."
 
-    $ endings += 1
+    "Haruka grabs a photo album off the shelf."
+    
+    r "Do you want to see some photos of me and my parents?"
 
+    h "Sure!"
+
+    "The album has photos ikebunnies in full bloom; violets, hydrangea, and lilac."
+
+    r "My family tends to grow blue and purple flowers."
+
+    h "But your hydrangea isn't blue. It's pink."
+
+    r "Did you know that based on what you eat, hydrangeas can change colors?"
+
+    r "My family gave me some things, but other things I grew myself."
+
+    "You come back from Auntie Haruka's house not having a clear answer to your question, but you do feel better about yourself."
+
+    "You wonder if you'll have a hydrangea like Auntie Haruka."
+
+    "Saku is waiting for you when you get home. You can't avoid him so you stand awkwardly in front of him."
+
+    s "How was your trip?"
+
+    h "Good... Auntie Haruka said some stuff I didn't completely get."
+
+    s "Like what?"
+
+    h "{i}Family can give you some things, but other things you have to grow yourself.{/i}"
+
+    "To your surprise, your dad smiles."
+
+    s "A wise one, that Haruka."
+
+    "He leans over to kiss you on the forehead."
+
+    h "I'm sorry dad."
+
+    s "Thanks, sweetie."
+
+    "You fall asleep that night thinking of blooms."
+
+    "You wake up the next morning for school and check the mirror."
+
+    "Your flower still hasn't bloomed."
+
+    "You sigh. You were hoping for a {b}hydrangea.{/b}"
+
+    "Maybe one day, you'll figure out who you'll be."
+
+    "{i}{b}Haruka Ending: Some Things You Grow Yourself{/b}{/i}"
+
+    "{i}There's still more to explore! Try out different options and see how Hana grows.{/i}"
+
+    $ harukaEnd = True
+
+return
+
+label flowers:
+    h "All my friends already have their flowers."
+    
+    h "Some say they're the same as their parents or their great-great-grandparents."
+
+    h "They told me if I knew who my family was..."
+
+    h "I'd know what I'd grow up to be."
+
+    "Haruka puts a hand on your paw."
+    
+    return
+
+label sadDad:
+    h "Why is my dad so sad?"
+    
+    "Haruka considers."
+
+    r "Well, I think it's because he wants you to be happy with the family you have."
+
+    h "That doesn't make any sense. I mean, I have family, but like..."
+
+    h "What about my biological family? Aren't they the bunnies I'll grow up to be?"
+
+    "Haruka chuckles."
+    
     return
 
 label hiddenEnding:

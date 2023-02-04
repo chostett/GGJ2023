@@ -1,4 +1,4 @@
-Sat Feb  4 15:37:34 2023
+Sat Feb  4 17:21:31 2023
 macOS-10.16-x86_64-i386-64bit
 Ren'Py 8.0.3.22090809
  
@@ -33,7 +33,7 @@ Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.26s
+Interface start took 0.28s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1680, 1050)
@@ -45,10 +45,3 @@ Version: b'2.1 ATI-4.9.51'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1578, 888) drawable=(3156, 1776)
 Maximum texture size: 4096x4096
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s

@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 85: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "I'm sorry, dad. I think I said something bad..."
-                                                     ^
+File "game/script.rpy", line 16: expected 'word' not found.
+    default $ paradiseEnd = false
+            ^
+
+File "game/script.rpy", line 17: expected 'word' not found.
+    default $ basilDaisyEnd = false
+            ^
+
+File "game/script.rpy", line 18: expected 'word' not found.
+    default $ harukaEnd = false
+            ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Feb  4 15:11:08 2023
+Sat Feb  4 17:06:45 2023
