@@ -18,7 +18,12 @@ image ikebunny02 = im.Scale("01_ikebunny-b.png", 1920, 1080)
 image roots01 = im.Scale("02_roots-a.png", 1920, 1080)
 image roots02 = im.Scale("02_roots-b.png", 1920, 1080)
 image roots03 = im.Scale("02_roots-c.png", 1920, 1080)
-
+image hana angry = im.Scale("hana-angry.png", 870, 720)
+image hana happy = im.Scale("hana-happy.png", 870, 720)
+image hana sad = im.Scale("hana-sad.png", 870, 720)
+image hana shock = im.Scale("hana-shock.png", 870, 720)
+image hana smile = im.Scale("hana-smile.png", 870, 720)
+image hana talk = "hana-talk.png"
 
 # The game starts here.
 
@@ -27,6 +32,8 @@ label start:
     define persistent.paradiseEnd = False
     define persistent.basilDaisyEnd = False
     define persistent.harukaEnd = False
+
+    $ leftAlign = Position(xpos=0.25, ypos=0.9)
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -76,19 +83,27 @@ label start:
 
     "{i}So you ask your dads.{/i}"
 
+    show hana smile at leftAlign
+
     h "Hey dad, do you think I'll be a sakura flower like you?"
 
     "One of your dads is named Saku. He was born and raised in Japan."
 
     s "You'll be the flower that you were meant to be, Hana."
 
+    show hana angry at leftAlign
+
     h "Daaaad."
 
     "You groan. He's been saying vague stuff like that since you were a kid."
 
+    show hana smile at leftAlign
+
     h "I mean, I know I came from Auntie Haruka."
 
     "Haruka has been your dad's best friend since forever. She was also the person who gave birth to you. She comes over every week for dinner."
+
+    show hana talk at leftAlign
 
     h "But like...who is my real dad?"
 
@@ -106,7 +121,11 @@ label start:
 
     l "Saku, what happened?"
 
+    show hana shock at leftAlign
+
     h "Uh..."
+
+    hide hana shock
 
     "Oh no. You messed up. Your dads are going to be mad at you...! What are you supposed to say?!"
 
@@ -134,6 +153,8 @@ label paradise:
 
     $ persistent.paradiseEnd = True
 
+    show hana sad at leftAlign
+
     h "I'm sorry. I think I said something bad..."
 
     "Saku nudges Leo."
@@ -144,17 +165,25 @@ label paradise:
 
     s "Hana, your know Uncle Paradise."
 
+    show hana smile at leftAlign
+
     h "Of course. He's dad's brother. He took care of me from when I was a kid."
+
+    show hana happy at leftAlign
 
     h "Ooh, maybe I'll have a Bird of Paradise flower like him!"
 
     l "Hana, Uncle Paradise isn't related to me."
+
+    show hana shock at leftAlign
 
     h "?! But you look like brothers!"
 
     "Leo laughs."
 
     l "I know. Everyone says so. But Uncle Paradise is actually one of Saku's old work colleagues."
+
+    show hana smile at leftAlign
 
     l "When Saku came out and you were born, he was there for all the rough times."
 
@@ -166,17 +195,23 @@ label paradise:
 
     s "He's a good uncle."
 
+    show hana talk at leftAlign
+
     h "He's a great uncle. But why tell me that?"
 
     l "I guess I wanted you to know that society can be really focused on 'blood' relatives."
 
     s "But sometimes the family that sticks around the longest isn't necessarily related to us."
 
+    show hana smile at leftAlign
+
     h "Is there a word for that?"
 
     "Saku smiles."
 
     s "Yeah. It's called 'chosen family.'"
+
+    hide hana smile
 
     "You fall asleep that night thinking of birds of paradise."
 
@@ -200,13 +235,19 @@ label basilAndDaisy:
 
     $ persistent.basilDaisyEnd = True
 
+    show hana angry at leftAlign
+
     h "I asked who my real dad is. Why is that a problem?"
 
     l "We're your parents. We raised you."
 
+    show hana sad at leftAlign
+
     h "No, I mean...whoever is my real dad I'll inherit their flower, right?"
 
     l "The word you're looking for is birth parent."
+
+    show hana angry at leftAlign
 
     h "Why does it matter?"
 
@@ -222,9 +263,13 @@ label basilAndDaisy:
 
     l "Hi dad. Hi mom. Can you explain to Hana the difference between a 'real' parent and a birth parent?"
 
+    show hana smile at leftAlign
+
     "Grandma Daisy looks a bit serious."
 
     d "Hana, where did you first hear that word?"
+
+    hide hana smile
 
     menu:
         "My classmates at school...":
@@ -236,6 +281,8 @@ label basilAndDaisy:
 
     b "Little sprout, did you know I was adopted?"
 
+    show hana smile at leftAlign
+
     "You didn't know that. You shake your head."
 
     d "It's true. And maybe back in Grandpa's day, they'd use words like that..."
@@ -245,6 +292,8 @@ label basilAndDaisy:
     b "If you say things like 'real,' that means you think there are 'fake' parents!"
 
     "Now you realize why your dads were so hurt by you saying real parents."
+
+    show hana shock at leftAlign
 
     h "That's not what I was trying to say...!"
 
@@ -256,6 +305,8 @@ label basilAndDaisy:
 
     l "We both wanted to understand this before we told you."
 
+    show hana sad at leftAlign
+
     "You feel really, really bad."
 
     h "...I'm sorry."
@@ -264,13 +315,19 @@ label basilAndDaisy:
 
     s "Maybe you'll be a handsome sunflower like Leo. Or a daisy like Grandma or a basil like Grandpa."
 
+    show hana talk at leftAlign
+
     h "If I become a basil, promise you won't eat me?"
 
     s "Only a little."
 
     s "As a snack."
 
+    show hana happy at leftAlign
+
     "Your family laughs, and you do, too."
+
+    hide hana happy
 
     "You fall asleep that night feeling grateful."
 
@@ -286,7 +343,11 @@ return
 
 label classmates:
 
+    show hana talk at leftAlign
+
     h "My classmates at school. We were talking about what kind of ikebunnies we'd be."
+
+    show hana sad at leftAlign
 
     h "I told them I'd probably either be a sakura blossom or a sunflower and they laughed at me."
 
@@ -296,9 +357,13 @@ label classmates:
 
 label teachers:
 
+    show hana talk at leftAlign
+
     h "My teachers. We were studying genetics and my teachers told me that by looking at an ikebunny's genetics..."
 
     h "You could find out who the 'real' parent was."
+
+    show hana sad at leftAlign
 
     h "Then I thought...what does that mean for me?"
 
@@ -307,6 +372,8 @@ label teachers:
 label auntHaruka:
 
     $ persistent.harukaEnd = True
+
+    show hana shock at leftAlign
 
     h "Um...can I go over to Auntie Haruka's house?"
 
@@ -317,6 +384,8 @@ label auntHaruka:
     "Auntie Haruka's house is a ten minute bike ride. You toss your bike down and run to her door."
 
     "Auntie Haruka opens the door. She's dressed sharply and the hydrangea on her back is perfectly quaffed."
+
+    show hana sad at leftAlign
 
     h "Auuuunnntiiiiiieeee!"
 
@@ -338,9 +407,13 @@ label auntHaruka:
     
     r "Little bean, family doesn't always work that way."
 
+    show hana shock at leftAlign
+
     h "It doesn't?"
 
     r "Sometimes you inherit stuff from your family, sure. But sometimes you grow your own stuff."
+
+    show hana smile at leftAlign
 
     "Haruka grabs a photo album off the shelf."
     
@@ -350,15 +423,23 @@ label auntHaruka:
 
     r "My family tends to grow blue and purple flowers."
 
+    show hana talk at leftAlign
+
     h "But your hydrangea isn't blue. It's pink."
 
     r "Did you know that based on what you eat, hydrangeas can change colors?"
 
+    show hana shock at leftAlign
+
     "You shake your head."
+
+    show hana smile at leftAlign
 
     r "My family gave me some things, but other things I grew myself."
 
     "You come back from Auntie Haruka's house not having clear answers, but feeling better."
+
+    show hana happy at leftAlign
 
     "You wonder if you'll grow a hydrangea. What color would it be?"
 
@@ -366,9 +447,13 @@ label auntHaruka:
 
     s "How was your trip?"
 
+    show hana smile at leftAlign
+
     h "Good... Auntie Haruka said some stuff I didn't completely get."
 
     s "Like what?"
+
+    show hana talk at leftAlign
 
     h "{i}Family can give you some things, but other things you have to grow yourself.{/i}"
 
@@ -378,11 +463,17 @@ label auntHaruka:
 
     "He leans over to kiss you on the forehead."
 
+    show hana sad at leftAlign
+
     h "I'm sorry dad."
 
     s "Thanks, sweetie. I love you."
 
+    show hana happy at leftAlign
+
     h "Love you too, dad."
+
+    hide hana happy
 
     "You fall asleep that night thinking of hydrangeas."
 
@@ -398,6 +489,8 @@ label auntHaruka:
 return
 
 label flowers:
+    show hana talk at leftAlign
+
     h "All my friends already have their flowers."
     
     h "Some say they're the same as their parents or their great-great-grandparents."
@@ -411,6 +504,8 @@ label flowers:
     return
 
 label sadDad:
+    show hana sad at leftAlign
+
     h "Why is my dad so sad?"
     
     "Haruka considers."
@@ -418,6 +513,8 @@ label sadDad:
     r "Well, I think it's because he wants you to be happy with the family you have."
 
     h "That doesn't make any sense. I mean, I have family, but like..."
+
+    show hana smile at leftAlign
 
     h "What about my biological family? Aren't they the ikebunnies I'll grow up to be?"
 
@@ -435,6 +532,8 @@ label hiddenEnding:
 
     "You take a look at yourself in the mirror."
 
+    show hana shock at leftAlign
+
     h "What!!!"
 
     h "DAAAAAAAD!"
@@ -442,6 +541,8 @@ label hiddenEnding:
     s "What is it!?"
 
     l "Coming honey!"
+
+    show hana happy at leftAlign
 
     h "I...! I bloomed!"
 
@@ -453,11 +554,17 @@ label hiddenEnding:
 
     "You're a flower you've never seen before. Something that is majestic and gigantic. Your dads' eyes go wide."
 
+    show hana shock at leftAlign
+
     h "What is it?"
 
     l "It's a..."
 
+    show hana happy at leftAlign
+
     s "Chrysanthemum!"
+
+    hide hana shock
 
     "{i}{b}Hana Ending: In Full Bloom{/b}{/i}"
 

@@ -2,9 +2,14 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 100: Line is indented, but the preceding return statement statement does not expect a block. Please check this line's indentation.
-    label ifElse:
-    ^
+File "game/script.rpy", line 25: invalid syntax
+    im.Scale("hana-smile.png", 870, 720, xpos 0,0)
+                                               ^
+
+File "game/script.rpy", line 36: invalid syntax
+    leftAlign Position(ypos=0.0, yanchor=0.0)
+               ^
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Feb  4 19:34:48 2023
+Sun Feb  5 13:09:19 2023
