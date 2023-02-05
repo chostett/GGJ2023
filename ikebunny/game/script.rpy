@@ -18,12 +18,19 @@ image ikebunny02 = im.Scale("01_ikebunny-b.png", 1920, 1080)
 image roots01 = im.Scale("02_roots-a.png", 1920, 1080)
 image roots02 = im.Scale("02_roots-b.png", 1920, 1080)
 image roots03 = im.Scale("02_roots-c.png", 1920, 1080)
-image hana angry = im.Scale("hana-angry.png", 870, 720)
-image hana happy = im.Scale("hana-happy.png", 870, 720)
-image hana sad = im.Scale("hana-sad.png", 870, 720)
-image hana shock = im.Scale("hana-shock.png", 870, 720)
-image hana smile = im.Scale("hana-smile.png", 870, 720)
-image hana talk = "hana-talk.png"
+image hana angry = im.Scale("hana-angry.png", 652, 540)
+image hana happy = im.Scale("hana-happy.png", 652, 540)
+image hana sad = im.Scale("hana-sad.png", 652, 540)
+image hana shock = im.Scale("hana-shock.png", 652, 540)
+image hana smile = im.Scale("hana-smile.png", 652, 540)
+image hana talk = im.Scale("hana-talk.png", 652, 540)
+image saku smile = im.Scale("saku-smile.png", 1150, 1120)
+image leo angry = im.Scale("leo-angry.png", 910, 640)
+image leo happy = im.Scale("leo-happy.png", 910, 640)
+image leo sad = im.Scale("leo-sad.png", 910, 640)
+image leo smile = im.Scale("leo-smile.png", 910, 640)
+image leo talk = im.Scale("leo-talk.png", 910, 640)
+image bgpink = Solid("#f2ddf1")
 
 # The game starts here.
 
@@ -33,7 +40,9 @@ label start:
     define persistent.basilDaisyEnd = False
     define persistent.harukaEnd = False
 
-    $ leftAlign = Position(xpos=0.25, ypos=0.9)
+    $ leftAlign = Position(xpos=0.20, ypos=0.9)
+    $ rightAlign = Position(xpos=0.75, ypos=0.9)
+    $ rightAlignTop = Position(xpos=0.8, ypos=0.9)
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -83,7 +92,10 @@ label start:
 
     "{i}So you ask your dads.{/i}"
 
+    scene bgpink
+
     show hana smile at leftAlign
+    show saku smile at rightAlign
 
     h "Hey dad, do you think I'll be a sakura flower like you?"
 
@@ -109,13 +121,17 @@ label start:
 
     "Saku suddenly goes quiet. Then he looks very, very sad. You get the sense you said something bad. You start to panic."
 
+    show leo smile at rightAlignTop
+
     "Another rabbit comes up behind your dad and gives him a hug. He has a big, cheerful sunflower sprouting from his back."
 
     "His name is Leo. He's from the U.S. He met Saku while studying abroad in Japan and they fell in love."
-
+    
     l "Saku, is this lady bothering you?"
 
     s "..."
+
+    show leo sad at rightAlignTop
 
     "Leo's smile drops when he sees the tears in Saku's eyes. His flower wilts a bit."
 
@@ -126,6 +142,7 @@ label start:
     h "Uh..."
 
     hide hana shock
+    hide leo sad
 
     "Oh no. You messed up. Your dads are going to be mad at you...! What are you supposed to say?!"
 
