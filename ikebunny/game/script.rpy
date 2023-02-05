@@ -18,18 +18,30 @@ image ikebunny02 = im.Scale("01_ikebunny-b.png", 1920, 1080)
 image roots01 = im.Scale("02_roots-a.png", 1920, 1080)
 image roots02 = im.Scale("02_roots-b.png", 1920, 1080)
 image roots03 = im.Scale("02_roots-c.png", 1920, 1080)
+# Original sizing for Hana: 435px x 360
 image hana angry = im.Scale("hana-angry.png", 652, 540)
 image hana happy = im.Scale("hana-happy.png", 652, 540)
 image hana sad = im.Scale("hana-sad.png", 652, 540)
 image hana shock = im.Scale("hana-shock.png", 652, 540)
 image hana smile = im.Scale("hana-smile.png", 652, 540)
 image hana talk = im.Scale("hana-talk.png", 652, 540)
+# Original sizing for Saku: 575px x 560px
 image saku smile = im.Scale("saku-smile.png", 1150, 1120)
+image saku happy = im.Scale("saku-happy.png", 1150, 1120)
+image saku worried = im.Scale("saku-worried.png", 1150, 1120)
+image saku sad = im.Scale("saku-sad.png", 1150, 1120)
+
+# Original sizing for Leo: 455px x 320px
 image leo angry = im.Scale("leo-angry.png", 910, 640)
 image leo happy = im.Scale("leo-happy.png", 910, 640)
 image leo sad = im.Scale("leo-sad.png", 910, 640)
 image leo smile = im.Scale("leo-smile.png", 910, 640)
 image leo talk = im.Scale("leo-talk.png", 910, 640)
+# Original sizing for Haruka: 350px x 325px
+image haruka happy = im.Scale("haruka-happy.png", 700, 650)
+image haruka smile = im.Scale("haruka-smile.png", 700, 650)
+image haruka talk = im.Scale("haruka-talk.png", 700, 650)
+image haruka worried = im.Scale("haruka-worried.png", 700, 650)
 image bgpink = Solid("#f2ddf1")
 
 # The game starts here.
@@ -119,6 +131,8 @@ label start:
 
     h "But like...who is my real dad?"
 
+    show saku worried at rightAlign
+
     "Saku suddenly goes quiet. Then he looks very, very sad. You get the sense you said something bad. You start to panic."
 
     show leo smile at rightAlignTop
@@ -128,6 +142,8 @@ label start:
     "His name is Leo. He's from the U.S. He met Saku while studying abroad in Japan and they fell in love."
     
     l "Saku, is this lady bothering you?"
+
+    show saku sad at rightAlign
 
     s "..."
 
@@ -140,9 +156,6 @@ label start:
     show hana shock at leftAlign
 
     h "Uh..."
-
-    hide hana shock
-    hide leo sad
 
     "Oh no. You messed up. Your dads are going to be mad at you...! What are you supposed to say?!"
 
@@ -171,14 +184,22 @@ label paradise:
     $ persistent.paradiseEnd = True
 
     show hana sad at leftAlign
+    show saku sad at rightAlign
+    show leo sad at rightAlignTop
 
     h "I'm sorry. I think I said something bad..."
+
+    # Saku Worried
 
     "Saku nudges Leo."
 
     s "Leo, I think this could be a good moment to talk about what family means to us."
 
+    show leo smile at rightAlignTop
+
     "Leo nods. Saku turns to you."
+
+    # Saku Smile
 
     s "Hana, your know Uncle Paradise."
 
@@ -218,17 +239,22 @@ label paradise:
 
     l "I guess I wanted you to know that society can be really focused on 'blood' relatives."
 
+    # Saku Worried
+
     s "But sometimes the family that sticks around the longest isn't necessarily related to us."
 
     show hana smile at leftAlign
 
     h "Is there a word for that?"
 
+    # Saku Happy
+
     "Saku smiles."
 
     s "Yeah. It's called 'chosen family.'"
 
     hide hana smile
+    #Hide Saku and Leo
 
     "You fall asleep that night thinking of birds of paradise."
 
@@ -391,6 +417,8 @@ label auntHaruka:
     $ persistent.harukaEnd = True
 
     show hana shock at leftAlign
+    show saku worried at rightAlign
+    show leo talk at rightAlignTop
 
     h "Um...can I go over to Auntie Haruka's house?"
 
@@ -398,6 +426,9 @@ label auntHaruka:
 
     "Before your dads can say anything, you grab your bike and leave in a panic. What did you do!? You're scared to ask."
 
+    hide saku worried
+    hide leo talk
+    
     "Auntie Haruka's house is a ten minute bike ride. You toss your bike down and run to her door."
 
     "Auntie Haruka opens the door. She's dressed sharply and the hydrangea on her back is perfectly quaffed."
@@ -406,12 +437,16 @@ label auntHaruka:
 
     h "Auuuunnntiiiiiieeee!"
 
+    show haruka worried at rightAlign
+
     "Auntie Haruka gives you a big hug."
 
     r "Oh, little bean! What's wrong?"
 
     h "*sniff* I think I said something bad...I asked my dad about my flower and...and who my real dad was..."
 
+    show haruka smile at rightAlign
+    
     r "Come in, come in."
 
     "She invites you in for lavender tea. The words come spilling out of you."
@@ -422,15 +457,20 @@ label auntHaruka:
         "Why is my dad so sad?":
             call sadDad
     
+    show haruka happy at rightAlign
+    
     r "Little bean, family doesn't always work that way."
 
     show hana shock at leftAlign
 
     h "It doesn't?"
 
+    show haruka talk at rightAlign
+
     r "Sometimes you inherit stuff from your family, sure. But sometimes you grow your own stuff."
 
     show hana smile at leftAlign
+    show haruka smile at rightAlign
 
     "Haruka grabs a photo album off the shelf."
     
@@ -438,11 +478,15 @@ label auntHaruka:
     
     "They are in in full bloom; violets, hydrangea, and lilac."
 
+    show haruka talk at rightAlign
+
     r "My family tends to grow blue and purple flowers."
 
     show hana talk at leftAlign
 
     h "But your hydrangea isn't blue. It's pink."
+
+    show haruka smile at rightAlign
 
     r "Did you know that based on what you eat, hydrangeas can change colors?"
 
@@ -451,8 +495,11 @@ label auntHaruka:
     "You shake your head."
 
     show hana smile at leftAlign
+    show haruka happy at rightAlign
 
     r "My family gave me some things, but other things I grew myself."
+
+    hide haruka happy at rightAlign
 
     "You come back from Auntie Haruka's house not having clear answers, but feeling better."
 
@@ -462,11 +509,15 @@ label auntHaruka:
 
     "Saku is waiting for you when you get home. You can't avoid him so you stand awkwardly at the door."
 
+    show saku worried at rightAlign
+
     s "How was your trip?"
 
     show hana smile at leftAlign
 
     h "Good... Auntie Haruka said some stuff I didn't completely get."
+
+    show saku smile at rightAlign
 
     s "Like what?"
 
@@ -476,7 +527,11 @@ label auntHaruka:
 
     "To your surprise, your dad smiles."
 
+    show saku happy at rightAlign
+
     s "A wise one, that Haruka."
+
+    show saku smile at rightAlign
 
     "He leans over to kiss you on the forehead."
 
@@ -487,10 +542,12 @@ label auntHaruka:
     s "Thanks, sweetie. I love you."
 
     show hana happy at leftAlign
+    show saku happy at rightAlign
 
     h "Love you too, dad."
 
     hide hana happy
+    hide saku happy
 
     "You fall asleep that night thinking of hydrangeas."
 
@@ -516,6 +573,8 @@ label flowers:
 
     h "I'd know what I'd grow up to be."
 
+    show haruka worried at rightAlign
+
     "Haruka puts a hand on your paw."
     
     return
@@ -524,8 +583,12 @@ label sadDad:
     show hana sad at leftAlign
 
     h "Why is my dad so sad?"
+
+    show haruka worried at rightAlign
     
     "Haruka considers."
+
+    show haruka talk at rightAlign
 
     r "Well, I think it's because he wants you to be happy with the family you have."
 
@@ -534,6 +597,8 @@ label sadDad:
     show hana smile at leftAlign
 
     h "What about my biological family? Aren't they the ikebunnies I'll grow up to be?"
+
+    show haruka happy at rightAlign
 
     "Haruka chuckles."
     
@@ -555,7 +620,11 @@ label hiddenEnding:
 
     h "DAAAAAAAD!"
 
+    show saku worried at rightAlign
+
     s "What is it!?"
+
+    show leo talk at rightAlignTop
 
     l "Coming honey!"
 
@@ -566,6 +635,9 @@ label hiddenEnding:
     "Your dads burst into your room to see you standing in front of the mirror, wide-eyed."
 
     "You..."
+
+    show saku happy at rightAlign
+    show leo happy at rightAlignTop
 
     "Are so beautiful!"
 
@@ -581,7 +653,9 @@ label hiddenEnding:
 
     s "Chrysanthemum!"
 
-    hide hana shock
+    hide hana happy
+    hide saku happy
+    hide leo happy
 
     "{i}{b}Hana Ending: In Full Bloom{/b}{/i}"
 
