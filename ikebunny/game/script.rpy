@@ -161,11 +161,11 @@ label start:
 
     menu: 
             "I'm sorry. I think I said something bad...":
-                call paradise
+                call paradise from _call_paradise
             "I asked who my real dad is. Why is that a problem?":
-                call basilAndDaisy
+                call basilAndDaisy from _call_basilAndDaisy
             "Um...can I go over to Auntie Haruka's house?":
-                call auntHaruka
+                call auntHaruka from _call_auntHaruka
 
     if (persistent.paradiseEnd == True) and (persistent.basilDaisyEnd == True) and (persistent.harukaEnd == True):
 
@@ -316,9 +316,9 @@ label basilAndDaisy:
 
     menu:
         "My classmates at school...":
-            call classmates
+            call classmates from _call_classmates
         "My teachers...":
-            call teachers
+            call teachers from _call_teachers
         
     "Grandpa Basil chuckles."
 
@@ -453,9 +453,9 @@ label auntHaruka:
 
     menu:
         "All my friends already have their flowers.":
-            call flowers
+            call flowers from _call_flowers
         "Why is my dad so sad?":
-            call sadDad
+            call sadDad from _call_sadDad
     
     show haruka happy at rightAlign
     
@@ -663,7 +663,7 @@ label hiddenEnding:
 
     menu:
         "Reset the game entirely. You will have to replay the game to get to this ending.":
-            call resetGame
+            call resetGame from _call_resetGame
         "Keep my save. You will jump straight to this ending upon loading the game.":
             pass
 
