@@ -4,15 +4,14 @@
 # name of the character.
 
 define h = Character("Hana")
-# はな
+define t = Character("Mirabel", color = "#ffa200")
 define s = Character("Saku", color = "#d77dc4")
-# 桜
 define l = Character("Leo", color = "#e7b80c")
-define b = Character("Basil", color = "#2c6a2e")
-define d = Character("Daisy", color = "#b628e1")
+define g = Character("Ginger", color = "#2c6a2e")
+define f = Character("Fennel", color = "#b628e1")
 define r = Character("Haruka", color="#8533ae")
-# 紫陽花
 define p = Character("Paradise", color="#1596a2")
+
 image ikebunny01 = im.Scale("01_ikebunny-a.png", 1920, 1080)
 image ikebunny02 = im.Scale("01_ikebunny-b.png", 1920, 1080)
 image roots01 = im.Scale("02_roots-a.png", 1920, 1080)
@@ -49,8 +48,13 @@ image bgpink = Solid("#f2ddf1")
 label start:
 
     define persistent.paradiseEnd = False
-    define persistent.basilDaisyEnd = False
+    define persistent.gingerFennelEnd = False
     define persistent.harukaEnd = False
+
+    define fennelConvo = False
+    define gingerConvo = False
+
+    define date = 0
 
     $ leftAlign = Position(xpos=0.20, ypos=0.9)
     $ rightAlign = Position(xpos=0.75, ypos=0.9)
@@ -86,34 +90,68 @@ label start:
 
     # These display lines of dialogue.
 
-    "{i}An ikebunny is a very special creature.{/i}"
+    "{i}We ikebunnies are very special.{/i}"
 
-    "{i}Why are they special?{/i}"
+    "{i}Why are we special?{/i}"
 
     show ikebunny02atl
 
-    "{i}When an ikebunny comes of age, they sink their roots into the ground...{/i}"
+    "{i}When we get to be a certain age, we sink our roots into the ground...{/i}"
 
     "{i}...drink up a loooot of water...{/i}"
 
-    "{i}And grow a beautiful flower.{/i}"
+    "{i}And grow a beautiful garden atop our backs.{/i}"
 
-    "{i}Somebunnies' flowers are the same as their mother. Or father. And somebunnies' flowers are the same as other relatives, like their aunties or cousins.{/i}"
+    "{i}'What kind of garden will I grow?' you might ask yourself.{/i}"
 
-    "{i}You are an ikebunny named Hana. You want to know what your beautiful flower will be.{/i}"
+    "{i}Well, that depends...{/i}"
 
-    "{i}So you ask your dads.{/i}"
+    "{i}Somebunnies' will grow herbs like their mother. Others will bloom flowers like their father. And somebunnies' gardens will have blooms like their aunties or cousins.{/i}"
+
+    "{i}What determines your garden is a mystery.{/i}"
+
+    "{i}But all we know is that we only grow seeds that were planted with love.{/i}"
+
+    "Teacher Mirabel looks around the room. Some ikebunnies are picking their noses. Others are falling asleep."
+
+    "But not you. You are staring at her intensely. Your hand is raised."
+
+    t "Yes, Hana?"
+
+    h "But I wanna know what my flower is going to be right now. How do I find out?"
+
+    "Teacher Mirabel smiles. There's always one in every class."
+
+    t "Your assignment this week is to interview your family members about their gardens."
+
+    t "You will prepare a short presentation on your unique family to share with the class on Friday."
+
+    "She winks at Hana."
+
+    t "Maybe you will get some clues."
+
+    "You're so excited to get started you almost forget your school notebook."
+
+    "You can't wait to find out what you will be!"
+
+    "You run home and burst through the door. You almost make it to the dining table when your dad stops you."
 
     scene bgpink
 
     show hana smile at leftAlign
     show saku smile at rightAlign
 
-    h "Hey dad, do you think I'll be a sakura flower like you?"
+    s "Hey! Shoes off, little lady!"
 
-    "One of your dads is named Saku. He was born and raised in Japan."
+    h "Sorry!"
 
-    s "You'll be the flower that you were meant to be, Hana."
+    "You take your shoes off."
+
+    h "Hey dad, do you think I'll become a cherry blossom like you?"
+
+    "Your dad is named Saku. He was born and raised in Japan."
+
+    s "You'll be the garden that you were meant to be."
 
     show hana angry at leftAlign
 
@@ -123,25 +161,37 @@ label start:
 
     show hana smile at leftAlign
 
-    h "I mean, I know I came from Auntie Haruka."
+    h "I have a school project to interview my family."
 
-    "Haruka has been your dad's best friend since forever. She was also the person who gave birth to you. She comes over every week for dinner."
+    h "I wanna interview you and Auntie Haruka."
+
+    "Haruka has been your dad's best friend since forever. She was also the person who gave birth to you."
+    
+    "And she's not your mom, but she's your family."
+
+    s "Me? Sure. I'm sure Auntie Haruka can tell you more about family than me..."
+
+    "Come to think of it, dad never talks about his family. You've heard of Grandma and Grandpa before, but never met them."
 
     show hana talk at leftAlign
 
-    h "But like...who is my real dad?"
+    h "Why don't you talk about your family, dad?"
 
     show saku worried at rightAlign
 
-    "Saku suddenly goes quiet. Then he looks very, very sad. You get the sense you said something bad. You start to panic."
+    "Saku suddenly goes quiet. Then he looks very, very sad."
+    
+    "You get the sense you said something bad. You start to panic."
 
     show leo smile at rightAlignTop
 
-    "Another rabbit comes up behind your dad and gives him a hug. He has a big, cheerful sunflower sprouting from his back."
+    "Your pops comes up behind your dad and squeezes his shoulder. Pops has a big, cheerful sunflower sprouting from his back."
 
-    "His name is Leo. He's from the U.S. He met Saku while studying abroad in Japan and they fell in love."
+    "His name is Leo. He's from the U.S. He met Saku while studying abroad in Japan and fell in love."
+
+    "They wanted to get married, but because same-sex marriage is illegal in Japan, they only recently were able to get a partnership."
     
-    l "Saku, is this lady bothering you?"
+    l "What's up?"
 
     show saku sad at rightAlign
 
@@ -151,7 +201,7 @@ label start:
 
     "Leo's smile drops when he sees the tears in Saku's eyes. His flower wilts a bit."
 
-    l "Saku, what happened?"
+    l "Hey, what happened?"
 
     show hana shock at leftAlign
 
@@ -159,89 +209,146 @@ label start:
 
     "Oh no. You messed up. Your dads are going to be mad at you...! What are you supposed to say?!"
 
-    menu: 
-            "I'm sorry. I think I said something bad...":
+    menu family: 
+            "I want to interview dad's family.":
                 call paradise from _call_paradise
-            "I asked who my real dad is. Why is that a problem?":
-                call basilAndDaisy from _call_basilAndDaisy
-            "Um...can I go over to Auntie Haruka's house?":
+            "Pops, how about I interview your family?":
+                call gingerAndFennel from _call_gingerAndFennel
+            "Um...can I go to Auntie Haruka's house?":
                 call auntHaruka from _call_auntHaruka
-
-    if (persistent.paradiseEnd == True) and (persistent.basilDaisyEnd == True) and (persistent.harukaEnd == True):
-
-        jump hiddenEnding
-
-    else:
-        "{i}There are still more endings to explore! Help Hana expand her roots to help her grow.{/i}"
+            "I...think I have all the information I need." if (persistent.paradiseEnd == True) and (persistent.gingerFennelEnd == True) and (persistent.harukaEnd == True):
+                jump hiddenEnding
     
     return
+label endGame:
 return
 
 # The game ends here
 
 label paradise: 
 
-    $ persistent.paradiseEnd = True
-
     show hana sad at leftAlign
     show saku sad at rightAlign
     show leo sad at rightAlignTop
 
-    h "I'm sorry. I think I said something bad..."
+    h "I want to interview dad's family."
+
+    h "I know about grandma and grandpa, but I don't even know what kinds of gardens they have."
 
     # Saku Worried
 
-    "Saku nudges Leo."
+    "Though your dad's expression hasn't changed, he is nodding."
 
-    s "Leo, I think this could be a good moment to talk about what family means to us."
+    s "It's a fair question, Hana. It was a little silly of me to not bring this up sooner."
+    
+    s "Hana, do you know what the word 'disown' means?"
 
-    show leo smile at rightAlignTop
+    menu: 
+            "You bought something and then sold it?":
+                call soldSomething
+            "Someone who doesn't like you?":
+                call dontLike
+            "Am I going to be disowned?":
+                call question
 
-    "Leo nods. Saku turns to you."
+    label soldSomething:
+        h "You bought something and then sold it?"
 
-    # Saku Smile
+        "Saku considers."
 
-    s "Hana, your know Uncle Paradise."
+        s "Not quite."
 
-    show hana smile at leftAlign
+        s "Things can be bought and sold. People can disowned."
 
-    h "Of course. He's dad's brother. He took care of me from when I was a kid."
+        jump chosenFamily
+    
+    label dontLike:
+        h "Someone who doesn't like you?"
 
-    show hana happy at leftAlign
+        s "It's more like...someone who doesn't want to be associated with you anymore."
 
-    h "Ooh, maybe I'll have a Bird of Paradise flower like him!"
+        h "Like they avoid you and never talk to you?"
 
-    l "Hana, Uncle Paradise isn't related to me."
+        s "Yes, like that..."
 
-    show hana shock at leftAlign
+        h "That sounds terrible."
 
-    h "?! But you look like brothers!"
+        s "It is."
 
-    "Leo laughs."
+        jump chosenFamily
 
-    l "I know. Everyone says so. But Uncle Paradise is actually one of Saku's old work colleagues."
+    label question:
+        h "Am I going to be disowned?"
 
-    show hana smile at leftAlign
+        "Your pops jumps in."
 
-    l "When Saku came out and you were born, he was there for all the rough times."
+        l "No way, Hana. We won't disown you."
 
-    s "He took me in after my parents kicked me out."
+        h "Whew. It doesn't sound like a good thing."
 
-    s "And when we were overwhelmed with your dirty diapers."
+        s "You're right..."
 
-    l "And so we asked him to be your uncle."
+        jump chosenFamily
+    
+    label chosenFamily:
 
-    s "He's a good uncle."
+    s "You see, when I met your Pops and we fell in love, my family wasn't supportive."
 
-    show hana talk at leftAlign
+    s "They told me if I wanted to marry a man, that they did not want to be my family anymore."
 
-    h "He's a great uncle. But why tell me that?"
+    s "That's what 'disowned' means."
+    
+    s "Because I was not family, they told me I couldn't live with them."
 
-    l "I guess I wanted you to know that society can be really focused on 'blood' relatives."
+    l "And I was finishing up my degree in the U.S. so I was far away..."
 
-    # Saku Worried
+    h "Why would they say something like that? They're your family!"
 
-    s "But sometimes the family that sticks around the longest isn't necessarily related to us."
+    s "They're not my family anymore. They disowned me."
+    
+    s "Family loves us, no matter what shape we are or garden we grow. They said they loved me, but only if I would be something different."
+
+    "Your eyes fill with tears."
+
+    "Just then, you hear a knock on the door. Your dad goes to get it. It's your Uncle Paradise."
+
+    "He takes one look at the situation and, just like always, gets at the heart of the problem. He turns towards your dad."
+
+    p "Let me guess. Talking about your parents?"
+
+    "Saku nods."
+
+    h "Uncle, I hate Grandma and Grandpa! How could they be so mean to dad?"
+
+    p "Hanabean. It's okay to be angry at people. Heck, I was really angry at Saku's family for kicking him out."
+
+    p "But the opposite of hate ain't more hate."
+
+    "He smiles at you, and you feel calmness spread over you like a warm chamomile tea."
+
+    p "We were coworkers. Your dad came into work crying something fierce. He had all his things in a backpack."
+
+    s "It was awful."
+
+    p "And I made him a promise then that whatever happened, I wouldn't let him leave work and sleep on the streets. That we would be there for each other."
+    
+    p "And here we are."
+
+    "Saku smiles."
+
+    s "And here we are."
+
+    p "And we won in the end. But it wasn't by marching over to their house and calling them bigots."
+
+    l "But it would have felt good."
+
+    p "We won because we supported and loved one another."
+
+    h "Family loves us, no matter what shape we are or garden we grow."
+
+    l "That's right. He's family."
+
+    s "Sometimes the family that sticks around isn't related to us."
 
     show hana smile at leftAlign
 
@@ -251,7 +358,7 @@ label paradise:
 
     "Saku smiles."
 
-    s "Yeah. It's called 'chosen family.'"
+    s "Yes. It's called 'chosen family.'"
 
     hide hana smile
     #Hide Saku and Leo
@@ -260,157 +367,231 @@ label paradise:
 
     "You wish you could be like Uncle Paradise."
 
-    "You hope one day you'll find an ikebunny family."
+    "His words could calm an ocean."
 
-    "You want to be someone's aunt someday."
+    "You hope that one day, you can be someone's chosen family, too."
 
-    "You wake up the next morning for school and check the mirror."
+    "You wake up the next morning for school and excitedly check the mirror."
 
-    "Your flower still hasn't bloomed."
+    "Now that you've learned about chosen family, maybe your garden has grown a little."
 
-    "You dial the number for Uncle Paradise. Maybe he'll know how to make it grow faster...?"
+    "But you find nothing. Not even a sprout."
+
+    "You text Uncle Paradise. Maybe he'll know how to make it grow faster...?"
 
     "{i}{b}Paradise Ending: The Family You Choose{/b}{/i}"
 
-    return
+    $ persistent.paradiseEnd = True
+    $ date += 1
 
-label basilAndDaisy:
+    "{i}There are still more endings to explore!{/i}"
 
-    $ persistent.basilDaisyEnd = True
+    "{i}When you advance to the next day, you'll have the choice to do more interviews.{/i}"
 
-    show hana angry at leftAlign
-
-    h "I asked who my real dad is. Why is that a problem?"
-
-    l "We're your parents. We raised you."
-
-    show hana sad at leftAlign
-
-    h "No, I mean...whoever is my real dad I'll inherit their flower, right?"
-
-    l "The word you're looking for is birth parent."
-
-    show hana angry at leftAlign
-
-    h "Why does it matter?"
-
-    l "Let me get Grandma Daisy and Grandpa Basil on the phone."
-
-    "Just like their namesakes, Grandma Daisy has a field of daisies on her back, and Grandpa Basil has basil leaves sprouting from his ears."
-
-    b "LEO! SAKU! HARU! HOW ARE YOU??"
-
-    d "Grandpa, you don't need to shout for them to hear you..."
-
-    b "Eh??"
-
-    l "Hi dad. Hi mom. Can you explain to Hana the difference between a 'real' parent and a birth parent?"
-
-    show hana smile at leftAlign
-
-    "Grandma Daisy looks a bit serious."
-
-    d "Hana, where did you first hear that word?"
-
-    hide hana smile
+    "{i}Help Hana expand her roots to help her grow.{/i}"
 
     menu:
-        "My classmates at school...":
-            call classmates from _call_classmates
-        "My teachers...":
-            call teachers from _call_teachers
+        "Go to the next day":
+            jump nextDay1
+
+    label nextDay1:
+
+    "The next day you return home from school. Your dads are waiting for you."
+
+    l "Hey! Shoes, young lady!"
+
+    h "Ah! Sorry, pops!"
+
+    "As soon as you kick your shoes off, you grab your trusty notepad."
+
+    h "Ok, now I want to ask about..."
+    
+    jump family
+
+label gingerAndFennel:
+
+    show hana angry at leftAlign
+
+    h "Pops, how about I interview your family?"
+
+    l "Grandma Fennel and Grandpa Ginger? I can ask them if they're free..."
+
+    h "Hooray!"
+
+    "Grandma Fennel and Grandpa Ginger live far away. They like to travel a lot, so you often talk to them by video call."
+
+    "Just like their namesakes, Grandma Fennel has a field of fennel on her back, with a few big sunflowers waving tall, just like pops. Grandpa Ginger has big magenta flowers sprouting from his ears."
+
+    g "LEO! SAKU! HARU! HOW ARE YOU??"
+
+    f "Grandpa, you don't need to shout for them to hear you..."
+
+    g "Eh??"
+
+    l "Hi dad, Hi mom!"
+
+    f "Hi sweetie! Where's Saku and Haru?"
+
+    s "I'm right here."
+
+    f "Oooh, look at those blooms! Such a handsome boy."
+
+    l "I swear, if she could reach through the Internet and pinch your cheeks, she would."
+
+    f "I would!"
+
+    "Your dad blushes."
+
+    l "Dad, mom, Haru is doing a school project on family."
+
+    g "You don't say!"
+
+    "Who will you ask?"
+
+    menu grandparentsChoose:
+            "Ask Grandma Fennel about her garden":
+                jump fennel
+            "Ask Grandpa Ginger about his garden":
+                jump ginger
+            "Thanks, Grandma and Grandpa!" if fennelConvo == True and gingerConvo ==True:
+
+                h "Thanks, Grandma and Grandpa!"
+
+                h "Soooo...If I become a fennel, promise you won't eat me?"
+
+                s "Only a little."
+
+                s "As a snack."
+
+                h "Noooo!"
+
+                show hana happy at leftAlign
+
+                "Your family laughs, and you do, too."
+
+                hide hana happy
+
+                "You fall asleep that night feeling grateful."
+
+                "Grateful for Grandma and Grandpa and your dads."
+
+                "Will you grow a big garden to become a world star chef?"
+
+                "Travel the world like Grandma Fennel?"
+
+                "You fall asleep dreaming of travel and cooking."
+
+                "You wake up the next morning for school and check the mirror, even for a little sprout."
+
+                "No sprout."
+
+                "You sigh. You hope you'll bloom soon. You're looking forward to seeing what you become."
+
+                "{i}{b}Daisy and Basil Ending: Little Sprout Grows Up{/b}{/i}"
+
+                $ persistent.gingerFennelEnd = True
+
+                "The next day you return home from school."
+
+                "You remember your shoes this time."
+
+                h "Dad! Pops! Can I do more interviews?"
+
+                l "Sure, ask away."
+
+                h "Ok, now I want to ask about..."
+
+                jump family
+    
+
+    label fennel:
+
+        show hana talk at leftAlign
+
+        $ fennelConvo = True
+
+        h "Grandma, can you tell me what your family was like? What kinds of blooms did everybunny have?"
+
+        "Grandma Fennel looks overjoyed."
+
+        f "We come from a family of tough flowers and herbs, and we're proud of it!"
+
+        f "When I was a little girl, I used to dream about fields of daisies..."
+
+        f "I was so sure I was going to grow a field of daisies! But I got fennel."
+
+        h "Were you disappointed when you found out?"
+
+        f "A little, at first. But then I found out how useful fennel is."
+
+        "You lean closer to the screen."
+
+        "Grandma Fennel takes some small shears and snips a leaf off her plant."
+
+        f "You can eat them raw, sautée them, and they're really tasty!"
+
+        f "Your grandpa and I, we love traveling the world for new ingredients. There's nothing better than something you can grow yourself."
+
+        h "Wow! So I could have a salad on my back!?"
+
+        f "Maybe!"
         
-    "Grandpa Basil chuckles."
+        jump grandparentsChoose
+    
+    label ginger:
 
-    b "Little sprout, did you know I was adopted?"
+        show hana talk at leftAlign
 
-    show hana smile at leftAlign
+        $ gingerConvo = True
 
-    "You didn't know that. You shake your head."
+        h "Grandpa, what was your family like?"
 
-    d "It's true. And maybe back in Grandpa's day, they'd use words like that..."
+        "Grandpa Ginger chuckles."
 
-    d "But times are changing. Your Grandpa's parents are his parents. He has birth parents, but..."
+        g "Little sprout, did you know I was adopted?"
 
-    b "If you say things like 'real,' that means you think there are 'fake' parents!"
+        "You shake your head."
 
-    "Now you realize why your dads were so hurt by you saying real parents."
+        g "It was a closed adoption, which means I never met my birth parents."
 
-    show hana shock at leftAlign
+        g "My parents were a lavender bush and a beetroot. They always smelled so good."
 
-    h "That's not what I was trying to say...!"
+        g "I wondered about my birth parents a lot in my youth, before I sprouted."
 
-    b "But intent isn't magic, little sprout. You're old enough to know that."
+        h "I would too!"
 
-    l "I'm your birth parent, Hana. But Saku isn't any less of a parent to you than I am."
+        g "My parents were really supportive. They told me whatever I chose they would support me."
 
-    s "That's right."
+        g "I ended up not meeting them."
 
-    l "We both wanted to understand this before we told you."
+        h "Are you happy you made that choice?"
 
-    show hana sad at leftAlign
+        "Grandpa Ginger smiles."
 
-    "You feel really, really bad."
+        g "I am. Maybe another person would have made a different choice than me, but I'm happy with the one I made."
 
-    h "...I'm sorry."
+        g "And I promised my parents that when I had a kid, I would support them in making their own decisions."
 
-    "Saku gives you a big squeeze."
+        g "And my goodness, look at me now! Our little Leo is all grown up and I've supported him all the way."
 
-    s "Maybe you'll be a handsome sunflower like Leo. Or a daisy like Grandma or a basil like Grandpa."
+        l "Dad...you're gonna make me cry."
 
-    show hana talk at leftAlign
+        "Saku dabs at his eyes."
 
-    h "If I become a basil, promise you won't eat me?"
+        s "Too late!"
 
-    s "Only a little."
+        h "Your flowers are so pretty, Grandpa!"
 
-    s "As a snack."
+        h "What are they?"
 
-    show hana happy at leftAlign
+        g "They're ginger root!"
 
-    "Your family laughs, and you do, too."
+        h "Ginger roots have flowers?"
 
-    hide hana happy
+        g "They sure do."
 
-    "You fall asleep that night feeling grateful."
+        jump grandparentsChoose
 
-    "You wake up the next morning for school and check the mirror, even for a little sprout."
-
-    "No sprout."
-
-    "You sigh. You hope you'll bloom soon. You're looking forward to seeing what you become."
-
-    "{i}{b}Daisy and Basil Ending: Little Sprout Grows Up{/b}{/i}"
-
-return
-
-label classmates:
-
-    show hana talk at leftAlign
-
-    h "My classmates at school. We were talking about what kind of ikebunnies we'd be."
-
-    show hana sad at leftAlign
-
-    h "I told them I'd probably either be a sakura blossom or a sunflower and they laughed at me."
-
-    h "They told me that's not possible because both of of my parents are male. One of them had to be the 'real' one."
-
-    return
-
-label teachers:
-
-    show hana talk at leftAlign
-
-    h "My teachers. We were studying genetics and my teachers told me that by looking at an ikebunny's genetics..."
-
-    h "You could find out who the 'real' parent was."
-
-    show hana sad at leftAlign
-
-    h "Then I thought...what does that mean for me?"
-
-    return
 
 label auntHaruka:
 

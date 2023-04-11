@@ -1,35 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 27, in script
-    image bgpink = Frame(color = "#dcb4da")
-  File "game/script.rpy", line 27, in script
-    image bgpink = Frame(color = "#dcb4da")
-  File "game/script.rpy", line 27, in <module>
-    image bgpink = Frame(color = "#dcb4da")
-TypeError: __init__() missing 1 required positional argument: 'image'
+  File "game/script.rpy", line 211, in script call
+    call basilAndDaisy from _call_basilAndDaisy
+  File "game/script.rpy", line 553, in script
+    g "And I promised my parents that when I had a kid, I would support them 100% with making their own decisions."
+ValueError: unsupported format character 'w' (0x77) at index 75
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/Applications/renpy-8.0.3-sdk/renpy/bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "/Applications/renpy-8.0.3-sdk/renpy/main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/script.rpy", line 27, in script
-    image bgpink = Frame(color = "#dcb4da")
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/script.rpy", line 27, in script
-    image bgpink = Frame(color = "#dcb4da")
-  File "/Applications/renpy-8.0.3-sdk/renpy/ast.py", line 1230, in execute
-    img = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "/Applications/renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 27, in <module>
-    image bgpink = Frame(color = "#dcb4da")
-TypeError: __init__() missing 1 required positional argument: 'image'
+  File "game/script.rpy", line 211, in script call
+    call basilAndDaisy from _call_basilAndDaisy
+  File "game/script.rpy", line 553, in script
+    g "And I promised my parents that when I had a kid, I would support them 100% with making their own decisions."
+  File "/Applications/renpy-8.0.3-sdk/renpy/ast.py", line 921, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Applications/renpy-8.0.3-sdk/renpy/exports.py", line 1362, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character 'w' (0x77) at index 75
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.0.3.22090809
 ikebunny 1.0
-Sun Feb  5 13:33:27 2023
+Tue Apr 11 15:12:39 2023
