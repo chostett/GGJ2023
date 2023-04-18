@@ -490,7 +490,19 @@ label gingerAndFennel:
                 "{i}{b}Daisy and Basil Ending: Little Sprout Grows Up{/b}{/i}"
 
                 $ persistent.gingerFennelEnd = True
+                $ date += 1
 
+                "{i}There are still more endings to explore!{/i}"
+
+                "{i}When you advance to the next day, you'll have the choice to do more interviews.{/i}"
+
+                "{i}Help Hana expand her roots to help her grow.{/i}"
+
+                menu:
+                    "Go to the next day":
+                        jump nextDay2
+
+                label nextDay2:
                 "The next day you return home from school."
 
                 "You remember your shoes this time."
@@ -503,7 +515,6 @@ label gingerAndFennel:
 
                 jump family
     
-
     label fennel:
 
         show hana talk at leftAlign
