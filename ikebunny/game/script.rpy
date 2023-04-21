@@ -94,7 +94,7 @@ label start:
         pause 0.5
         repeat
 
-    show universe
+    screen universe
 
 
     # This shows a character sprite. A placeholder is used, but you can
