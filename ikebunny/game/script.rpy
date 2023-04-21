@@ -12,8 +12,18 @@ define f = Character("Fennel", color = "#b628e1")
 define r = Character("Haruka", color="#8533ae")
 define p = Character("Paradise", color="#1596a2")
 
-image ikebunny01 = im.Scale("01_ikebunny-a.png", 1920, 1080)
-image ikebunny02 = im.Scale("01_ikebunny-b.png", 1920, 1080)
+image main_menu_animated:
+    "gui/main_menu.png"
+    pause 1.0
+    "gui/main_menu_2.png"
+    pause 1.0
+    "gui/main_menu_3.png"
+    pause 1.0
+    repeat
+
+image ikebunnyCenter = im.Scale("ikebunny-center.png", 1920, 1080)
+image ikebunnyRight = im.Scale("ikebunny-right.png", 1920, 1080)
+image ikebunnyLeft = im.Scale("ikebunny-left.png", 1920, 1080)
 image roots01 = im.Scale("02_roots-a.png", 1920, 1080)
 image roots02 = im.Scale("02_roots-b.png", 1920, 1080)
 image roots03 = im.Scale("02_roots-c.png", 1920, 1080)
@@ -64,10 +74,14 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    image ikebunny01atl:
-        "ikebunny01"
+    image universe:
+        "ikebunnyCenter"
         pause 0.5
-        "ikebunny02"
+        "ikebunnyRight"
+        pause 0.5
+        "ikebunnyCenter"
+        pause 0.5
+        "ikebunnyLeft"
         pause 0.5
         repeat
     
@@ -80,7 +94,7 @@ label start:
         pause 0.5
         repeat
 
-    show ikebunny01atl
+    show universe
 
 
     # This shows a character sprite. A placeholder is used, but you can
