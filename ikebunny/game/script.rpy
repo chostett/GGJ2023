@@ -21,12 +21,47 @@ image main_menu_animated:
     pause 1.0
     repeat
 
+# Initializing Universal Ikebunny images for animation (first animation)
 image ikebunnyCenter = im.Scale("ikebunny-center.png", 1920, 1080)
 image ikebunnyRight = im.Scale("ikebunny-right.png", 1920, 1080)
 image ikebunnyLeft = im.Scale("ikebunny-left.png", 1920, 1080)
-image roots01 = im.Scale("02_roots-a.png", 1920, 1080)
-image roots02 = im.Scale("02_roots-b.png", 1920, 1080)
-image roots03 = im.Scale("02_roots-c.png", 1920, 1080)
+
+# Initializing Tree and Roots images for animation (second and third animation)
+image tree01 = im.Scale("tree-1.png", 1920, 1080)
+image tree02 = im.Scale("tree-2.png", 1920, 1080)
+image tree03 = im.Scale("tree-3.png", 1920, 1080)
+image tree04 = im.Scale("tree-4.png", 1920, 1080)
+image tree05 = im.Scale("tree-5.png", 1920, 1080)
+image tree06 = im.Scale("tree-6.png", 1920, 1080)
+image tree07 = im.Scale("tree-7.png", 1920, 1080)
+image tree08 = im.Scale("tree-8.png", 1920, 1080)
+image tree09 = im.Scale("tree-9.png", 1920, 1080)
+image tree10 = im.Scale("tree-10.png", 1920, 1080)
+image tree11 = im.Scale("tree-11.png", 1920, 1080)
+image tree12 = im.Scale("tree-12.png", 1920, 1080)
+image tree13 = im.Scale("tree-13.png", 1920, 1080)
+image tree14 = im.Scale("tree-14.png", 1920, 1080)
+image tree15 = im.Scale("tree-15.png", 1920, 1080)
+image tree16 = im.Scale("tree-16.png", 1920, 1080)
+image tree17 = im.Scale("tree-17.png", 1920, 1080)
+image tree18 = im.Scale("tree-18.png", 1920, 1080)
+image tree19 = im.Scale("tree-19.png", 1920, 1080)
+image tree20 = im.Scale("tree-20.png", 1920, 1080)
+image tree21 = im.Scale("tree-21.png", 1920, 1080)
+image tree22 = im.Scale("tree-22.png", 1920, 1080)
+image tree23 = im.Scale("tree-23.png", 1920, 1080)
+image tree24 = im.Scale("tree-24.png", 1920, 1080)
+image tree25 = im.Scale("tree-25.png", 1920, 1080)
+image tree26 = im.Scale("tree-26.png", 1920, 1080)
+image tree27 = im.Scale("tree-27.png", 1920, 1080)
+image tree28 = im.Scale("tree-28.png", 1920, 1080)
+image tree29 = im.Scale("tree-29.png", 1920, 1080)
+image tree30 = im.Scale("tree-30.png", 1920, 1080)
+
+# Solid Color Backgrounds Used in the Game
+image bgBlack = Solid("#1c1a27")
+image bgpink = Solid("#f2ddf1")
+
 # Original sizing for Hana: 435px x 360
 image hana angry = im.Scale("hana-angry.png", 652, 540)
 image hana happy = im.Scale("hana-happy.png", 652, 540)
@@ -51,7 +86,6 @@ image haruka happy = im.Scale("haruka-happy.png", 700, 650)
 image haruka smile = im.Scale("haruka-smile.png", 700, 650)
 image haruka talk = im.Scale("haruka-talk.png", 700, 650)
 image haruka worried = im.Scale("haruka-worried.png", 700, 650)
-image bgpink = Solid("#f2ddf1")
 
 # The game starts here.
 
@@ -74,6 +108,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
+# Universal Ikebunny, First animation: setup
     image universe:
         "ikebunnyCenter"
         pause 0.5
@@ -84,17 +119,71 @@ label start:
         "ikebunnyLeft"
         pause 0.5
         repeat
-    
-    image ikebunny02atl:
-        "roots01"
-        pause 0.5
-        "roots02"
-        pause 0.5
-        "roots03"
-        pause 0.5
-        repeat
 
-    screen universe
+# Roots, Second animation: setup
+    image roots:
+        "tree01"
+        pause 0.5
+        "tree02"
+        pause 0.5
+        "tree03"
+        pause 0.5
+        "tree04"
+        pause 0.5
+        "tree05"
+        pause 0.5
+        "tree06"
+        pause 0.5
+        "tree07"
+        pause 0.5
+        "tree08"
+        pause 0.5
+    
+    image tree:
+        "tree09"
+        pause 0.5
+        "tree10"
+        pause 0.5
+        "tree11"
+        pause 0.5
+        "tree12"
+        pause 0.5
+        "tree13"
+        pause 0.5
+        "tree14"
+        pause 0.5
+        "tree15"
+        pause 0.5
+        "tree16"
+        pause 0.5
+        "tree17"
+        pause 0.5
+        "tree18"
+        pause 0.5
+        "tree19"
+        pause 0.5
+        "tree20"
+        pause 0.5
+        "tree21"
+        pause 0.5
+        "tree22"
+        pause 0.5
+        "tree23"
+        pause 0.5
+        "tree24"
+        pause 0.5
+        "tree25"
+        pause 0.5
+        "tree26"
+        pause 0.5
+        "tree27"
+        pause 0.2
+        "tree28"
+        pause 0.5
+        "tree29"
+        pause 0.5
+
+    show universe
 
 
     # This shows a character sprite. A placeholder is used, but you can
@@ -108,11 +197,15 @@ label start:
 
     "{i}Why are we special?{/i}"
 
-    show ikebunny02atl
+    hide universe
+    show roots
 
     "{i}When we get to be a certain age, we sink our roots into the ground...{/i}"
 
     "{i}...drink up a loooot of water...{/i}"
+
+    hide roots
+    show tree
 
     "{i}And grow a beautiful garden atop our backs.{/i}"
 
@@ -125,6 +218,9 @@ label start:
     "{i}What determines your garden is a mystery.{/i}"
 
     "{i}But all we know is that we only grow seeds that were planted with love.{/i}"
+
+    hide tree
+    show bgBlack
 
     "Teacher Mirabel looks around the room. Some ikebunnies are picking their noses. Others are falling asleep."
 
