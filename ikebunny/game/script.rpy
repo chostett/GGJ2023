@@ -192,16 +192,17 @@ label start:
     "{i}Why are we special?{/i}"
 
     # Initialize Second Animation
-    hide universe
     show roots
+    with fade
+    hide universe
 
     "{i}When we get to be a certain age, we sink our roots into the ground...{/i}"
 
     "{i}...drink up a loooot of water...{/i}"
 
     # Initialize Third Animation
-    hide roots
     show tree
+    hide roots
 
     "{i}And grow a beautiful garden atop our backs.{/i}"
 
@@ -215,8 +216,9 @@ label start:
 
     "{i}But all we know is that we only grow seeds that were planted with love.{/i}"
 
+    show bgBlack 
+    with fade
     hide tree
-    show bgBlack
 
     "Teacher Mirabel looks around the room. Some ikebunnies are picking their noses. Others are falling asleep."
 
