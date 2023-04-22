@@ -108,7 +108,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-# Universal Ikebunny, First animation: setup
+    # Universal Ikebunny, First animation: setup
     image universe:
         "ikebunnyCenter"
         pause 0.5
@@ -120,7 +120,7 @@ label start:
         pause 0.5
         repeat
 
-# Roots, Second animation: setup
+    # Roots, Second animation: setup
     image roots:
         "tree01"
         pause 0.5
@@ -183,20 +183,15 @@ label start:
         "tree29"
         pause 0.5
 
+    # Initialize First Animation
     show universe
 
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-
-    # These display lines of dialogue.
-
+    # Initialize Dialogue
     "{i}We ikebunnies are very special.{/i}"
 
     "{i}Why are we special?{/i}"
 
+    # Initialize Second Animation
     hide universe
     show roots
 
@@ -204,6 +199,7 @@ label start:
 
     "{i}...drink up a loooot of water...{/i}"
 
+    # Initialize Third Animation
     hide roots
     show tree
 
