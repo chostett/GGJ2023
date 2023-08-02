@@ -10,7 +10,6 @@ define l = Character("Leo", color = "#e7b80c")
 define g = Character("Ginger", color = "#2c6a2e")
 define f = Character("Fennel", color = "#b628e1")
 define r = Character("Haruka", color="#8533ae")
-define p = Character("Paradise", color="#1596a2")
 
 image main_menu_animated:
     "gui/main_menu.png"
@@ -91,7 +90,7 @@ image haruka worried = im.Scale("haruka-worried.png", 700, 650)
 
 label start:
 
-    define persistent.paradiseEnd = False
+    define persistent.cherryBlossomEnd = False
     define persistent.gingerFennelEnd = False
     define persistent.harukaEnd = False
 
@@ -204,45 +203,53 @@ label start:
     show tree
     hide roots
 
-    "{i}And grow a beautiful garden atop our backs.{/i}"
+    "{i}And grow beautiful bouquets atop our backs.{/i}"
 
-    "{i}'What kind of garden will I grow?' you might ask yourself.{/i}"
+    "{i}'What kind of bouquet will I grow?' you might ask yourself.{/i}"
 
     "{i}Well, that depends...{/i}"
 
-    "{i}Somebunnies' will grow herbs like their mother. Others will bloom flowers like their father. And somebunnies' gardens will have blooms like their aunties or cousins.{/i}"
+    "{i}Somebunnies' will grow herbs like their mother. Others will grow flowers like their father. And somebunnies' bouquets will have blooms like their aunties or cousins.{/i}"
 
-    "{i}What determines your garden is a mystery.{/i}"
-
-    "{i}But all we know is that we only grow seeds that were planted with love.{/i}"
+    "{i}Our bouquets represent the seeds of love that have been planted in us.{/i}"
 
     show bgBlack 
     with fade
     hide tree
 
-    "Teacher Mirabel looks around the room. Some ikebunnies are picking their noses. Others are falling asleep."
+    "Teacher Mirabel looks around the room."
+    
+    "Some ikebunnies are picking their noses. Others are falling asleep."
 
-    "But not you. You are staring at her intensely. Your hand is raised."
+    "But not you. You are staring at her. Your hand is raised."
 
     t "Yes, Hana?"
 
-    h "But I wanna know what my flower is going to be right now. How do I find out?"
+    h "What kind of bouquet will I grow?"
 
-    "Teacher Mirabel smiles. There's always one in every class."
+    "Teacher Mirabel smiles."
 
-    t "Your assignment this week is to interview your family members about their gardens."
+    t "That's what your assignment this week will be."
+    
+    t "I want you to think about your own seeds of love."
+    
+    t "Who has made a difference in your life?"
 
-    t "You will prepare a short presentation on your unique family to share with the class on Friday."
+    t "Talk to those people. Ask them about their own seeds."
 
-    "She winks at Hana."
+    t "You will prepare a short presentation to share with the class."
 
-    t "Maybe you will get some clues."
+    "She winks at you."
 
-    "You're so excited to get started you almost forget your school notebook."
+    t "Maybe you will find some clues."
 
-    "You can't wait to find out what you will be!"
+    "You're so excited."
+    
+    "Who are the people in your life who matter most?"
 
-    "You run home and burst through the door. You almost make it to the dining table when your dad stops you."
+    "Well of course, your parents."
+
+    "You run home. You almost make it to the dining table when your dad stops you."
 
     scene bgpink
 
@@ -255,76 +262,132 @@ label start:
 
     "You take your shoes off."
 
-    h "Hey dad, do you think I'll become a cherry blossom like you?"
+    s "You look like you had a good day at school."
 
-    "Your dad is named Saku. He was born and raised in Japan."
+    h "I did! We talked about when we're gonna get our bouquets and--dad, do you think I'll be a cherry blossom like you?"
 
-    s "You'll be the garden that you were meant to be."
+    s "Maybe."
 
     show hana angry at leftAlign
 
     h "Daaaad."
 
-    "You groan. He's been saying vague stuff like that since you were a kid."
+    "You wanted him to say something more exciting, but your dad's always been like that."
 
-    show hana smile at leftAlign
+    "Quiet."
 
-    h "I have a school project to interview my family."
+    "The opposite of you."
 
-    h "I wanna interview you and Auntie Haruka."
+    h "What does 'maybe' mean?!"
 
-    "Haruka has been your dad's best friend since forever. She was also the person who gave birth to you."
+    s "Of course I {i}want{/i} you to have cherry blossoms...but I'd rather you have a bouquet that makes {i}you{/i} happy."
+
+    "You secretly hope you will grow cherry blossoms."
     
-    "And she's not your mom, but she's your family."
+    "Then you and your dad would have more to talk about."
 
-    s "Me? Sure. I'm sure Auntie Haruka can tell you more about family than me..."
+    "{i}That{/i} would make you happy."
 
-    "Come to think of it, dad never talks about his family. You've heard of Grandma and Grandpa before, but never met them."
+    h "Anyway."
+    
+    h "I have a school project about us ikebunnies' bouquets."
 
-    show hana talk at leftAlign
+    s "Oh?"
+
+    h "I wanna interview you..."
+    
+    h "...and Pops..."
+    
+    h "and Auntie Haruka!"
+
+    "Auntie Haruka is your dad's best friend. She was the person who gave birth to you."
+    
+    "Your dad and Pops asked her to be a surrogate."
+
+    "You look up at your dad. He looks surprised."
+
+    s "{i}Me?{/i} I'm sure Auntie Haruka can tell you more about her bouquet than me..."
+
+    "Come to think of it, dad never talks about where he got his cherry blossoms from."
+    
+    "You've heard of Grandma and Grandpa before, but never met them."
+
+    "You wonder if you should ask now."
+
+    menu: 
+        "How come you don't talk about Grandma and Grandpa?":
+            jump sakuParents
+        "(Say nothing.)":
+            jump sayNothing
+
+label sakuParents:
 
     h "Why don't you talk about your family, dad?"
 
-    show saku worried at rightAlign
-
-    "Saku suddenly goes quiet. Then he looks very, very sad."
+    "Your dad suddenly goes quiet."
     
-    "You get the sense you said something bad. You start to panic."
+    "Then he looks very, very sad."
+    
+    "Did you say something bad?"
 
-    show leo smile at rightAlignTop
+    "Pops comes up behind your dad and nuzzles his cheek. Pops has a big, cheerful sunflower sprouting from his back."
 
-    "Your pops comes up behind your dad and squeezes his shoulder. Pops has a big, cheerful sunflower sprouting from his back."
+    l "What's up, Saku?"
 
-    "His name is Leo. He's from the U.S. He met Saku while studying abroad in Japan and fell in love."
+    s "Oh, Leo..."
 
-    "They wanted to get married, but because same-sex marriage is illegal in Japan, they only recently were able to get a partnership."
+    jump questionIntro
+
+label sayNothing:
+    "You decide to say nothing. You awkwardly fidget as your dad tilts his head."
+
+    "This is kinda...normal for you two?"
+
+    h "..."
+
+    s "...?"
+
+    "Pops comes up behind your dad and nuzzles his cheek. Pops has a big, cheerful sunflower sprouting from his back."
+
+    l "Hi Hanabean! Hi Saku."
+
+    h "Hi Pops!"
+
+    s "Oh, Leo."
+
+label questionIntro:
+
+    "You forgot to mention their names."
+    
+    "Pops' name is Leo. Your dad is Saku."
+    
+    "Pops is from the U.S. He met Saku while studying abroad in Japan and they fell in love."
+
+    "Isn't that romantic?!"
     
     l "What's up?"
 
-    show saku sad at rightAlign
+    s "Hana's doing a school report on our bouquets."
 
-    s "..."
+    l "That's great! Well, I'm ready for my interview."
 
-    show leo sad at rightAlignTop
+    "He bats his eyes and does a silly pose."
 
-    "Leo's smile drops when he sees the tears in Saku's eyes. His flower wilts a bit."
+    "You laugh. You and Pops are so alike."
+    
+    "If you had to guess what flower you'd be, you'd probably be a sunflower like him."
 
-    l "Hey, what happened?"
+label family:
+    l "So, who do you want to interview?"
 
-    show hana shock at leftAlign
-
-    h "Uh..."
-
-    "Oh no. You messed up. Your dads are going to be mad at you...! What are you supposed to say?!"
-
-    menu family: 
-            "I want to interview dad's family.":
-                call paradise from _call_paradise
-            "Pops, how about I interview your family?":
+    menu: 
+            "I want to interview dad.":
+                call cherryBlossom from _call_cherryBlossom
+            "Pops, can I interview you?":
                 call gingerAndFennel from _call_gingerAndFennel
-            "Um...can I go to Auntie Haruka's house?":
+            "Let me interview Auntie Haruka!":
                 call auntHaruka from _call_auntHaruka
-            "I...think I have all the information I need." if (persistent.paradiseEnd == True) and (persistent.gingerFennelEnd == True) and (persistent.harukaEnd == True):
+            "I think I have everything I need." if (persistent.cherryBlossomEnd == True) and (persistent.gingerFennelEnd == True) and (persistent.harukaEnd == True):
                 jump hiddenEnding
     
     return
@@ -333,88 +396,104 @@ return
 
 # The game ends here
 
-label paradise: 
+label cherryBlossom: 
 
-    show hana sad at leftAlign
-    show saku sad at rightAlign
-    show leo sad at rightAlignTop
+    h "I want to interview dad."
 
-    h "I want to interview dad's family."
-
-    h "I know about grandma and grandpa, but I don't even know what kinds of gardens they have."
-
-    # Saku Worried
-
-    "Though your dad's expression hasn't changed, he is nodding."
-
-    s "It's a fair question, Hana. It was a little silly of me to not bring this up sooner."
+    h "I know about Grandma and Grandpa...kinda."
     
-    s "Hana, do you know what the word 'disown' means?"
+    h "But I don't know what kinds of flowers they have."
+
+    "Your dad frowns."
+    
+    "It's the kind of frown he gets when he's upset, but doesn't want you to know he's upset."
+
+    s "It's a fair question, Hana. You deserve to know."
+
+    "He sighs, and you notice the tension deflates his body."
+
+    "He looks smaller."
+
+    "That scares you."
+
+    s "I have a hard time talking about your Grandma and Grandpa."
+
+    "Pops gives him a comforting pat."
+
+    h "Pops, did you ever meet Grandma and Grandpa?"
+
+    l "No, they didn't want to meet me."
+
+    h "Why not?"
+
+    l "Because they didn't like me."
+    
+    "You twist your face in confusion. How could that be?"
+
+    "{i}Everybody{/i} likes your Pops. He's outgoing and really friendly."
+    
+    l "..or rather, they didn't like that your dad liked me."
+
+    s "You see, when your Pops and I fell in love, my family wasn't supportive at all."
+
+    s "In fact, they told me if I wanted to marry a man, that they did not want to be my family."
+
+    s "They disowned me."
+
+    "You feel tears prick at your eyes."
+
+    h "Why would they say something like that? Did they not love you?"
+
+    s "Your dad looks even smaller."
+
+    l "Hanabean, you probably shouldn't say--"
+
+    s "I used to think that."
+
+    "Your dad interrupts, which is unusual for him."
+
+    s "I used to think they didn't love me. I was sad and confused for a long time."
+
+    s "Because..."
 
     menu: 
-            "You bought something and then sold it?":
-                call soldSomething
-            "Someone who doesn't like you?":
-                call dontLike
-            "Am I going to be disowned?":
-                call question
+        "Grandma and Grandpa didn't want to be your family.":
+            jump disown
+        "Grandma and Grandpa had cherry blossoms like you.":
+            jump sameBlossom 
+        "Grandma and Grandpa said they loved you.":
+            jump expression
 
-    label soldSomething:
-        h "You bought something and then sold it?"
+label disown:
+    h "Grandma and Grandpa didn't want to be your family."
 
-        "Saku considers."
+    "Your dad nods."
 
-        s "Not quite."
+    s "Family loves us, no matter what shape we are or bouquet we grow. They said they loved me, but only if I would be something different for them."
 
-        s "Things can be bought and sold. People can disowned."
+    s "At first I thought they didn't love me, but now I realize that they did."
 
-        jump chosenFamily
-    
-    label dontLike:
-        h "Someone who doesn't like you?"
+    s "They loved their idea of me."
 
-        s "It's more like...someone who doesn't want to be associated with you anymore."
+    s "Of who they thought I could be. And that, unfortunately, is all they could see."
 
-        h "Like they avoid you and never talk to you?"
+    s "They couldn't see {i}the real me.{/i}"
 
-        s "Yes, like that..."
+    s "So that, little Hana, is why I want you to be whatever it is you want to be."
 
-        h "That sounds terrible."
+    s "I don't want to love an imaginary version of you."
 
-        s "It is."
+    s "I want to love the real you."
 
-        jump chosenFamily
+label sameBlossom:
 
-    label question:
-        h "Am I going to be disowned?"
+    h "Grandma and Grandpa had cherry blossoms like you."
 
-        "Your pops jumps in."
+    "Your dad nods."
 
-        l "No way, Hana. We won't disown you."
+    s "That's right. Your Grandma had a beautiful cherry blossom, just like me."
 
-        h "Whew. It doesn't sound like a good thing."
-
-        s "You're right..."
-
-        jump chosenFamily
-    
-    label chosenFamily:
-
-    s "You see, when I met your Pops and we fell in love, my family wasn't supportive."
-
-    s "They told me if I wanted to marry a man, that they did not want to be my family anymore."
-
-    s "That's what 'disowned' means."
-    
-    s "Because I was not family, they told me I couldn't live with them."
-
-    l "And I was finishing up my degree in the U.S. so I was far away..."
-
-    h "Why would they say something like that? They're your family!"
-
-    s "They're not my family anymore. They disowned me."
-    
-    s "Family loves us, no matter what shape we are or garden we grow. They said they loved me, but only if I would be something different."
+    s "Your Grandpa had a tall, stately zelkova tree."
 
     "Your eyes fill with tears."
 
@@ -432,7 +511,7 @@ label paradise:
 
     p "But the opposite of hate ain't more hate."
 
-    "He smiles at you, and you feel calmness spread over you like a warm chamomile tea."
+    "You feel calmness spread over you like warm chamomile tea."
 
     p "We were coworkers. Your dad came into work crying something fierce. He had all his things in a backpack."
 
@@ -448,17 +527,11 @@ label paradise:
 
     p "And we won in the end. But it wasn't by marching over to their house and calling them bigots."
 
-    l "But it would have felt good."
-
     p "We won because we supported and loved one another."
 
     h "Family loves us, no matter what shape we are or garden we grow."
 
-    l "That's right. He's family."
-
     s "Sometimes the family that sticks around isn't related to us."
-
-    show hana smile at leftAlign
 
     h "Is there a word for that?"
 
@@ -466,18 +539,17 @@ label paradise:
 
     "Saku smiles."
 
-    s "Yes. It's called 'chosen family.'"
+    s "Yes. It's called {i}'chosen family.'{/i}"
 
-    hide hana smile
     #Hide Saku and Leo
 
-    "You fall asleep that night thinking of birds of paradise."
+    "You fall asleep that night thinking of Birds of Paradise."
 
     "You wish you could be like Uncle Paradise."
 
     "His words could calm an ocean."
 
-    "You hope that one day, you can be someone's chosen family, too."
+    "You hope one day, you can be someone's {i}chosen family,{/i} too."
 
     "You wake up the next morning for school and excitedly check the mirror."
 
@@ -485,11 +557,13 @@ label paradise:
 
     "But you find nothing. Not even a sprout."
 
-    "You text Uncle Paradise. Maybe he'll know how to make it grow faster...?"
+    "You text Uncle Paradise."
+    
+    "Maybe he'll know how to make the garden grow faster...?"
 
     "{i}{b}Paradise Ending: The Family You Choose{/b}{/i}"
 
-    $ persistent.paradiseEnd = True
+    $ persistent.cherryBlossomEnd = True
     $ date += 1
 
     "{i}There are still more endings to explore!{/i}"
@@ -573,11 +647,7 @@ label gingerAndFennel:
 
                 h "Noooo!"
 
-                show hana happy at leftAlign
-
                 "Your family laughs, and you do, too."
-
-                hide hana happy
 
                 "You fall asleep that night feeling grateful."
 
@@ -625,8 +695,6 @@ label gingerAndFennel:
     
     label fennel:
 
-        show hana talk at leftAlign
-
         $ fennelConvo = True
 
         h "Grandma, can you tell me what your family was like? What kinds of blooms did everybunny have?"
@@ -658,8 +726,6 @@ label gingerAndFennel:
         jump grandparentsChoose
     
     label ginger:
-
-        show hana talk at leftAlign
 
         $ gingerConvo = True
 
@@ -725,27 +791,18 @@ label auntHaruka:
     "Leo looks confused. Saku puts a paw on his shoulder."
 
     "Before your dads can say anything, you grab your bike and leave in a panic. What did you do!? You're scared to ask."
-
-    hide saku worried
-    hide leo talk
     
     "Auntie Haruka's house is a ten minute bike ride. You toss your bike down and run to her door."
 
     "Auntie Haruka opens the door. She's dressed sharply and the hydrangea on her back is perfectly quaffed."
 
-    show hana sad at leftAlign
-
     h "Auuuunnntiiiiiieeee!"
-
-    show haruka worried at rightAlign
 
     "Auntie Haruka gives you a big hug."
 
     r "Oh, little bean! What's wrong?"
 
     h "*sniff* I think I said something bad...I asked my dad about my flower and...and who my real dad was..."
-
-    show haruka smile at rightAlign
     
     r "Come in, come in."
 
@@ -757,20 +814,11 @@ label auntHaruka:
         "Why is my dad so sad?":
             call sadDad from _call_sadDad
     
-    show haruka happy at rightAlign
-    
     r "Little bean, family doesn't always work that way."
-
-    show hana shock at leftAlign
 
     h "It doesn't?"
 
-    show haruka talk at rightAlign
-
     r "Sometimes you inherit stuff from your family, sure. But sometimes you grow your own stuff."
-
-    show hana smile at leftAlign
-    show haruka smile at rightAlign
 
     "Haruka grabs a photo album off the shelf."
     
@@ -778,76 +826,41 @@ label auntHaruka:
     
     "They are in in full bloom; violets, hydrangea, and lilac."
 
-    show haruka talk at rightAlign
-
     r "My family tends to grow blue and purple flowers."
 
-    show hana talk at leftAlign
-
-    h "But your hydrangea isn't blue. It's pink."
-
-    show haruka smile at rightAlign
+    h "But your hydrangea isn't blue. It's pink."n
 
     r "Did you know that based on what you eat, hydrangeas can change colors?"
 
-    show hana shock at leftAlign
-
     "You shake your head."
-
-    show hana smile at leftAlign
-    show haruka happy at rightAlign
 
     r "My family gave me some things, but other things I grew myself."
 
-    hide haruka happy at rightAlign
-
     "You come back from Auntie Haruka's house not having clear answers, but feeling better."
-
-    show hana happy at leftAlign
 
     "You wonder if you'll grow a hydrangea. What color would it be?"
 
     "Saku is waiting for you when you get home. You can't avoid him so you stand awkwardly at the door."
 
-    show saku worried at rightAlign
-
     s "How was your trip?"
-
-    show hana smile at leftAlign
 
     h "Good... Auntie Haruka said some stuff I didn't completely get."
 
-    show saku smile at rightAlign
-
     s "Like what?"
-
-    show hana talk at leftAlign
 
     h "{i}Family can give you some things, but other things you have to grow yourself.{/i}"
 
     "To your surprise, your dad smiles."
 
-    show saku happy at rightAlign
-
     s "A wise one, that Haruka."
 
-    show saku smile at rightAlign
-
     "He leans over to kiss you on the forehead."
-
-    show hana sad at leftAlign
 
     h "I'm sorry dad."
 
     s "Thanks, sweetie. I love you."
 
-    show hana happy at leftAlign
-    show saku happy at rightAlign
-
     h "Love you too, dad."
-
-    hide hana happy
-    hide saku happy
 
     "You fall asleep that night thinking of hydrangeas."
 
@@ -863,7 +876,6 @@ label auntHaruka:
 return
 
 label flowers:
-    show hana talk at leftAlign
 
     h "All my friends already have their flowers."
     
@@ -873,32 +885,21 @@ label flowers:
 
     h "I'd know what I'd grow up to be."
 
-    show haruka worried at rightAlign
-
     "Haruka puts a hand on your paw."
     
     return
 
 label sadDad:
-    show hana sad at leftAlign
 
     h "Why is my dad so sad?"
-
-    show haruka worried at rightAlign
     
     "Haruka considers."
-
-    show haruka talk at rightAlign
 
     r "Well, I think it's because he wants you to be happy with the family you have."
 
     h "That doesn't make any sense. I mean, I have family, but like..."
 
-    show hana smile at leftAlign
-
     h "What about my biological family? Aren't they the ikebunnies I'll grow up to be?"
-
-    show haruka happy at rightAlign
 
     "Haruka chuckles."
     
@@ -914,21 +915,13 @@ label hiddenEnding:
 
     "You take a look at yourself in the mirror."
 
-    show hana shock at leftAlign
-
     h "What!!!"
 
     h "DAAAAAAAD!"
 
-    show saku worried at rightAlign
-
     s "What is it!?"
 
-    show leo talk at rightAlignTop
-
     l "Coming honey!"
-
-    show hana happy at leftAlign
 
     h "I...! I bloomed!"
 
@@ -936,26 +929,15 @@ label hiddenEnding:
 
     "You..."
 
-    show saku happy at rightAlign
-    show leo happy at rightAlignTop
-
     "Are so beautiful!"
 
     "You're a flower you've never seen before. Something that is majestic and gigantic. Your dads' eyes go wide."
-
-    show hana shock at leftAlign
 
     h "What is it?"
 
     l "It's a..."
 
-    show hana happy at leftAlign
-
     s "Chrysanthemum!"
-
-    hide hana happy
-    hide saku happy
-    hide leo happy
 
     "{i}{b}Hana Ending: In Full Bloom{/b}{/i}"
 
